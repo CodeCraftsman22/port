@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fc86e6dd.css",
+    "main.js": "/static/js/main.7a53d65a.js",
+    "static/media/Tesla.png": "/static/media/Tesla.dbcb1b701b1cd430ddc2.png",
+    "static/media/Havenly.png": "/static/media/Havenly.cfaedbdf83859f889399.png",
+    "static/media/Vision M4.png": "/static/media/Vision M4.38f60dfc967d9807ed17.png",
+    "static/media/Nunito-VariableFont_wght.ttf": "/static/media/Nunito-VariableFont_wght.c0f0807a40aebdc41b40.ttf",
+    "static/media/profile.png": "/static/media/profile.67a0e12a02eef2f67eef.png",
+    "static/media/Capture1.JPG": "/static/media/Capture1.71e3f3e1f6b427c47b20.JPG",
+    "static/media/attachment_126914890-removebg-preview.png": "/static/media/attachment_126914890-removebg-preview.80c94022d6fb5926c7ca.png",
+    "index.html": "/index.html",
+    "main.fc86e6dd.css.map": "/static/css/main.fc86e6dd.css.map",
+    "main.7a53d65a.js.map": "/static/js/main.7a53d65a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fc86e6dd.css",
+    "static/js/main.7a53d65a.js"
+  ]
+}
