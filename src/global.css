@@ -1,0 +1,2103 @@
+@font-face {
+    font-family: newFont;
+    src: url(Nunito-VariableFont_wght.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: newFont;
+    background: transparent;
+}
+
+::-webkit-scrollbar{
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #A395E9;
+    width: 0.5rem;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #151c28;
+}
+
+.toTop{
+    height: 45px;
+    width: 45px;
+    background-color: #2d3542;
+    color: #ffffff;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 2rem;
+    right: 1rem;
+    border: none;
+    font-size: x-large;
+}
+
+.toTop:hover{
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-color: #0B111E;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+
+:root{
+    --navColor1: #0B111E;
+    --navColor2:#A395E9;
+    --hue: 223;
+	--bg: hsl(var(--hue),90%,95%);
+	--fg: hsl(var(--hue),90%,5%);
+	--trans-dur: 0.3s;
+}
+
+.pageLoader{
+    height: 100vh;
+    width: 100vw;
+    color: #A395E9;
+    display: grid;
+    place-items: center;
+    background: var(--bg);
+    transition: background-color var(--trans-dur);
+    
+}
+
+
+.ip {
+	width: 16em;
+	height: 8em;
+}
+.ip__track {
+	stroke: hsl(var(--hue),90%,90%);
+	transition: stroke var(--trans-dur);
+}
+.ip__worm1,
+.ip__worm2 {
+	animation: worm1 2s linear infinite;
+}
+.ip__worm2 {
+	animation-name: worm2;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: hsl(var(--hue),90%,5%);
+		--fg: hsl(var(--hue),90%,95%);
+	}
+	.ip__track {
+		stroke: hsl(var(--hue),90%,15%);
+	}
+}
+
+/* Animation */
+@keyframes worm1 {
+	from {
+		stroke-dashoffset: 0;
+	}
+	50% {
+		animation-timing-function: steps(1);
+		stroke-dashoffset: -358;
+	}
+	50.01% {
+		animation-timing-function: linear;
+		stroke-dashoffset: 358;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+@keyframes worm2 {
+	from {
+		stroke-dashoffset: 358;
+	}
+	50% {
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: -358;
+	}
+}
+
+nav{
+    height: 5rem;
+    width: 100vw;
+    max-width: 85rem;
+    background: var(--navColor1);
+    position:fixed;
+    top: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    margin: 0 auto;
+}
+
+#navLinks{
+    margin: 1rem;
+    color: white;
+    font-weight: bold;
+    position: relative;
+}
+
+#navLinks::after{
+    content: '';
+    height: 0.1rem;
+    width: 0%;
+    background-color: #A395E9;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.4s;
+}
+
+#navLinks:hover{
+    color: #A395E9;
+    cursor: pointer;
+}
+
+#navLinks:hover::after{
+    width: 100%;
+}
+
+
+
+nav #Logo{
+    object-fit: cover;
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+
+
+nav .contact{
+    height: 40px;
+    width: 120px;
+    padding: 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 35px;
+    border: none;
+    background-color: #a79ce0;
+    border: 2px solid #a79ce0;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav .contact:hover{
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #a79ce0;
+    color: #A395E9;
+}
+
+nav .contact:hover #CONTACT{
+    color: #A395E9;
+}
+
+
+nav .contact>i{
+    font-size: 18px;
+}
+
+.intro{
+    height: calc(100vh-5rem);
+    width: 100vw;
+    max-width: 50rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+.bg{
+   position: absolute;
+   top: 0rem;
+   z-index: -1;
+   right: 0;
+   object-fit: cover;
+   height: 89vh;
+   width: auto;
+   opacity: 0.85;
+}
+
+.introContent{
+    height: 88vh;
+    width: 100vw;
+    padding: 2rem;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #babec4;
+}
+
+.hello{
+    font-size: 1.2rem;
+    color: white;
+}
+
+.introName{
+    color: transparent;
+    font-weight: 700;
+    font-size: 3.5rem;
+    -webkit-text-stroke:0.3vw;
+    position: relative;
+}
+
+.introName::before{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  color: #A395E9;
+  -webkit-text-stroke:0vw #0B111E;
+  border-right: 0.1vw solid #A395E9;
+  overflow: hidden;
+  animation: bsk 6s linear 0s infinite;
+}
+
+@keyframes bsk {
+    0%,10%,90%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
+}
+
+.introPara{
+    font-size: 1.2rem;
+    width: 30rem;
+}
+
+.cv{
+    height: 2.5rem;
+    width: 10.7rem;
+    border: 2px solid #A395E9;
+    margin: 2rem 0rem;
+    font-size: 1rem;
+    display: grid;
+    place-items: center;
+    color: #A395E9;
+    border-radius: 30px;
+    letter-spacing: 0.05rem;
+    transition: 0.4s;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem 1rem;
+}
+
+.cv:hover{
+    background-color: #A395E9;
+    color: #0B111E;
+}
+
+ .about{
+    height: 44vw;
+    width: 100vw;
+    max-width: 66rem;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    flex-wrap: wrap;
+}
+ 
+
+
+
+ .MyIntro{
+    font-size: 1vw;
+    color: #888b91;
+    font-weight: lighter;
+    font-weight: 700;
+    text-align: center;
+ }
+
+ .AboutMe{
+    color: #A395E9;
+    font-size:2vw;
+    text-align: center;
+ }
+
+ .aboutPara{
+    font-size: 1.2rem;
+   width: 65vw;
+   color: #babec4;
+   text-align: center;
+   padding-top: 1rem;
+ }
+
+ .IntroAbout{
+    height: 30vh;
+    width: 100vw;
+    max-width: 63rem;
+    display: grid;
+    grid-template-rows: 5vw 14vw;
+    grid-template-columns: repeat(4,16vw);
+    padding: 2rem 2rem;
+    column-gap: 0.1rem;
+    margin: 0 auto;
+ }
+
+ .IntroAbout h3{
+    color: #d9d1fa;
+    font-weight: 600;
+    letter-spacing: 0.05vw;
+    font-size: 1.1vw;
+ }
+
+ .IntroAbout h4{
+    color: #babec4;
+    font-weight: 500;
+    font-size: 1.09vw;
+ }
+
+ #followMe{
+    color: #888b91;
+    text-align: center;
+    font-size: larger;
+    font-weight: 600;
+    padding: 1rem 1rem;
+ }
+
+ .socials{
+    padding: 1rem 2rem;
+    width: 100vw;
+    height: auto;
+    max-width: 30rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+ }
+
+ .socials>a{
+    height: 3rem;width: 3rem;
+    text-decoration: none;
+    border-radius: 16vw;
+    display: grid;
+    place-items: center;
+    font-size: 1.7vw;
+    color: #a79ce0;
+    background: rgba(255,255,255,0.1);
+    transition: 0.3s;
+ }
+
+ .socials>a:hover{
+    color: white;
+ }
+
+.Facebook1:hover{
+    background:  #4267B2;
+} 
+
+#InstA:hover{
+    background: radial-gradient(circle at 30% 107% ,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%);
+}
+
+#WApp:hover{
+    background-color: #25d336;
+}
+
+#Git:hover{
+    background: rgb(1, 120, 116);
+}
+
+
+.Education{
+    height: 35vw;
+    width: 100vw;
+    max-width: 66rem;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.education{
+    text-align: center;
+    font-size: 2vw;
+    color: #A395E9;
+    font-weight: 700;
+    
+}
+
+.qualification{
+    height: 20vw;
+    width: 65vw;
+    display: flex;
+    flex-direction: row;
+    padding-top: 2.5rem;
+
+}
+
+.school{
+    height: 15vw;
+    width: 18vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 16px;
+    background-color:#151c28 ;
+    text-align: center;
+    border: 2px solid #101e38;
+    transition: 0.4s;
+}
+
+.school:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+} 
+
+
+.SCHOOL{
+    font-size: 1.8vw;
+    padding: 0.65rem 0.65rem;
+    color: #a79ce0;
+    font-weight: bolder;
+}
+
+.SName{
+    
+    font-size: 1.2vw;
+    padding: 0.5rem 0.5rem;
+    letter-spacing: 0.025vw;
+    color: #f0f2f4;
+    font-weight: bold;
+}
+
+.SPlace{
+    color: #888b91;
+    font-weight: bold;
+    padding: 0.3rem 0.3rem;
+}
+
+.SYear{
+    color: #babec4;
+    padding: 0.2rem 0.2rem;
+}
+
+.Skills{
+    height: 85vh;
+    width: 100vw;
+    max-width: 80rem;
+    margin: 0 auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.skillName{
+    font-size: 2.2vw;
+    color: #A395E9;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.SkillSets{
+    height: 80vh;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.JAVA-WEB{
+    height: 98%;
+    width: 32%;
+    border-radius: 16px;
+    background-color: #151c28;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid #101e38;
+}
+
+.Technologies{
+    font-size: 1.5vw;
+    color: #a79ce0;
+    text-align: center;
+}
+
+.TechName{
+    height: 12vh;
+    width: 100vw;
+    max-width: 20vw;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.TechName>img{
+    
+    width: 4vw;
+    object-fit: cover;
+}
+
+.techNames{
+    height: 90%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.techNames>h1{
+    font-size: 1.2vw;
+    font-weight: 500;
+    color: whitesmoke;
+    letter-spacing: 0.03vw;
+}
+
+.skill-bar{
+    height: 0.75vw;
+    width: 95%;
+    border-radius: 1vw;
+    margin-top: 0.3rem;
+    background-color: whitesmoke;
+}
+
+.skill-per{
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 1vw;
+    background: #A395E9;
+    animation: progress-bar 0.4s ease-in-out 1s forwards;
+    opacity: 0;
+}
+
+.skill-per.css{
+    width: 100%;
+    animation-delay: 1.5s;
+}
+
+.skill-per.js{
+    width: 95%;
+    animation-delay: 2s;
+}
+
+.skill-per.react{
+    width: 90%;
+    animation-delay: 2.5s;
+}
+
+.skill-per.bootstrap{
+    width: 85%;
+    animation-delay: 3s;
+}
+
+.skill-per.java{
+    width: 85%;
+}
+
+.skill-per.Jdbc{
+    width: 80%;
+    animation-delay: 1.5s;
+}
+
+.skill-per.hibernate{
+    width: 60%;
+    animation-delay: 2s;
+}
+
+.skill-per.sql{
+    width: 50%;
+    animation-delay: 2.5s;
+}
+
+
+
+.skill-toolTip{
+    position: absolute;
+    right: 0.4vw;
+    top: 1vw;
+    font-size: 0.75vw;
+    font-weight: bold;
+}
+
+
+
+@keyframes progress-bar {
+    0%{
+        width: 0;
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+.skill-toolTip{
+    position: absolute;
+}
+
+
+
+.Works{
+    height: 140vh;
+    width: 100vw;
+    max-width: 75rem;
+    margin: 0 auto;
+    color: white;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.WorkName{
+    font-size: 2.2vw;
+    color: #A395E9;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.workBrief{
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 1rem 1rem;
+    max-width: 50rem;
+    margin: 0 auto;
+    text-align: center;
+   
+}
+
+.PROJECTS{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+   
+}
+
+.projects1{
+    height: 40vh;
+    width: 21.5vw;
+    border-radius: 16px;
+    background-color: #151c28;
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.projectImg{
+    height: 20vh;
+    max-width: 95%;
+    margin: 0 auto;
+    border-radius: 16px;
+    opacity: 0.85;
+}
+
+.projectName{
+    height: 7vh;
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.1vw;
+    color: #f0f2f4;
+}
+
+.projectLink1{
+    height: 7vh;
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.1vw;
+    color: #f0f2f4;
+}
+
+.projectLink1>a{
+    color: #a79ce0;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.projectLink1 #carot{
+    font-size: 1.3vw;
+    position: relative;
+    top: 0.15vw;
+}
+
+.projectLink1>a:hover{
+    transform: translateX(3px);
+}
+
+.ReactProject{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.ReactProjectAbout{
+    height: 90%;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 1rem;
+    background-color: #151c28;
+    border-radius: 16px;
+}
+
+.RPD-A{
+    font-size: 1.7vw;
+    padding: 1rem;
+    color: #a79ce0;
+    font-weight: bold;
+}
+
+.RPNAme{
+    color: #f0f2f4;
+    font-weight: 400;
+}
+
+.RD-description{
+    font-size: 1.2vw;
+    text-align: justify;
+    color: #A395E9;
+    font-weight: bold;
+}
+
+.RP_ABOUT{
+    color: #f0f2f4;
+    font-weight: lighter;
+}
+
+.ReactDanceApp{
+    height: 90%;
+    width: 45%;
+    max-width: 80%;
+    display: grid;
+    place-items: center;
+}
+
+.ContactMe{
+    height: 100vh;
+    width: 100vw;
+    max-width: 80vw;
+    margin: 0 auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 4rem;
+}
+
+.getInTouch{
+   color: #888b91;
+   text-align: center;
+}
+
+.contacts2{
+    padding: 1rem 2rem;
+    font-size: 2vw;
+    font-weight: bold;
+    color: #A395E9;
+    text-align: center;
+}
+
+.CONTACTS{
+    height: 80vh;
+    width: 95%;
+    border: 1px solid;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    border: none;
+}
+
+.contact1{
+    height: 95%;
+    width: 45%;
+    margin: 1rem;
+    display: grid;
+    padding: 2rem;
+}
+
+.talkMe{
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contact2{
+    height: 95%;
+    width: 45%;
+    margin: 1rem;
+    display: grid;
+    padding: 2rem;
+}
+
+.writeMe{
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contactEmail{
+    height: 17vh;
+    width: 70%;
+    background-color: #151c28;
+    border-radius: 16px;
+    margin: 0 auto;
+    display: grid;
+    padding: 1rem;
+    text-align: center;
+}
+
+.contactEmail>i{
+    font-size: x-large;
+}
+
+.emailAdd{
+    color: #babec4;
+}
+
+.contactEmail>a{
+    color: #A395E9;
+    font-weight: 500;
+    padding: 0.5rem;
+}
+
+.EnterName,.enterMail{
+    height: 3.5rem;
+    width: 90%;
+    margin: 0 auto;
+    border: 2px solid #888b91;
+    border-radius: 16px;
+    padding: 1rem;
+    color: #f0f2f4;
+    font-size: 1.3vw;
+    font-weight: bold;
+}
+
+.enterMsg{
+    height: 12rem;
+    width: 90%;
+    border: 2px solid #888b91;
+    margin: 0 auto;
+    margin: 0 auto;
+    border: 2px solid #888b91;
+    border-radius: 16px;
+    padding: 1rem;
+    color: #f0f2f4;
+    font-size: 1.3vw;
+    font-weight: bold;
+}
+
+input::placeholder{
+    color: #888b91;
+    font-size: 1.2vw;
+    font-weight: lighter;
+    letter-spacing: 0px;
+}
+
+textarea::placeholder{
+    color: #888b91;
+    font-size: 1.2vw;
+    font-weight: lighter;
+    letter-spacing: 0px;
+}
+
+.submitMe{
+    height: 3vw;
+    width: 10rem;
+    margin: 0 auto;
+    background-color: #A395E9;
+    color: #0B111E;
+    border: 2px solid #A395E9;
+    font-size: 1.2vw;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.submitMe:hover{
+    cursor: pointer;
+    background-color: transparent;
+    color: #A395E9;
+}
+
+.newMenuBar{
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    max-width: 50vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #151c28;
+    z-index: 3;
+}
+
+
+
+#MobileLinks{
+    color: white;
+    padding: 0.5rem 2rem;
+    margin: 0.25rem;
+    font-weight: bold;
+    background-color: #373e4b;
+    border-radius: 4px;
+    position: relative;
+    left: 1rem;
+    text-align: center;
+}
+
+#MobileLinks:hover{
+    cursor: pointer;
+    color: #A395E9;
+}
+
+.newMenuLogo{
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    object-fit: cover;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.newMenu{
+    position: absolute;
+    top: 6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .newMenuBar{
+    display: block;
+  }
+
+  nav div{
+    display: none;
+  }
+
+  nav .contact{
+    display: none;
+  }
+
+  .newMenuLogo{
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+}
+
+
+
+
+/*--------------------*/
+
+@media  (min-width: 300px) and (max-width: 435px) {
+
+    #Logo{
+        transform: scale(0.9);
+    }
+
+    .introContent{
+     font-size: 10vw;
+    }
+ 
+    .introName{
+     font-size: 11vw;
+    }
+ 
+    .introPara{
+     width: 85vw;
+    }
+    .bg{
+     opacity: 0.3;
+     right: 7vw;
+    }
+
+    .MyIntro{
+        height: auto;
+        width: 100vw;
+        font-size: 3vw;
+    }
+
+    .AboutMe{
+        width: 100vw;
+        font-size: 4vw;
+    }
+
+    .aboutPara{
+        font-size: 4.5vw;
+        width: 100vw;
+        text-align: left;
+    }
+
+    .about{
+        height: 95vh;
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .IntroAbout{
+        display: grid;
+        grid-template-rows: repeat(4,15vw);
+        grid-template-columns: repeat(2,45vw);
+        width: 100vw;
+        height: auto;
+    }
+
+    .IntroAbout h3{
+        font-size: 3.6vw;
+    }
+
+    .IntroAbout h4{
+        font-size: 3.5vw;
+    }
+
+    #followMe{
+        padding-top: 5vw;
+        font-size: 3vw;
+    }
+
+    .socials>a>i{
+        font-size: 7vw;
+    }
+
+    .Education{
+        height: 70vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      
+    }
+
+    .education{
+        font-size: 4vw;
+        position: relative;
+        top: 1rem;
+
+    }
+
+    .qualification{
+        height: 63vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        
+    }
+
+    .school{
+        height: 15vh;
+        width: 38vw;
+        padding: 1rem;
+    }
+
+    .SCHOOL{
+        font-size: 3.5vw;
+        padding: 1vw;
+    }
+
+    .SName{
+        font-size: 3vw;
+        padding: 0;
+        font-weight: 400;
+        letter-spacing: 0.02rem;
+    }
+
+    .SPlace{
+        font-size:2.7vw ;
+    }
+
+    .SYear{
+        font-size: 2.5vw;
+    }
+
+    .Skills{
+         height: 100vh;
+    }
+
+    .skillName{
+        font-size: 4.5vw;
+        position: relative;
+        top: 2rem;
+    }
+
+    .SkillSets{
+        height: 85%;
+        display: grid;
+        grid-row: 1;
+        row-gap: 1rem;
+    }
+
+    .JAVA-WEB{
+        height:38vh;
+        width: 60vw;
+        padding: 1rem 1rem;
+    }
+
+    .Technologies{
+        font-size: 3vw;
+
+    }
+
+    .TechName{
+        width: 100vw;
+        max-width: 50vw;
+        margin: 0 auto;
+    }
+
+    .TechName>img{
+        width: 8vw;
+    }
+
+    .techNames>h1{
+        font-size: 2.5vw;
+    }
+
+    .skill-bar{
+        height: 2vw;
+        border-radius: 2vw;
+    }
+
+    .skill-per{
+        border-radius: 2vw;
+    }
+
+    .skill-toolTip{
+        top: 2vw;
+        font-size: 2vw;
+        font-weight: 500;
+    }
+
+    .Works{
+        padding: 1rem 1rem;
+        height: auto;
+    }
+
+    .WorkName{
+        font-size: 5vw;
+    }
+
+    .workBrief{
+        width: 100vw;
+        max-width:90vw;
+        margin: 0 auto;
+        padding: 1rem;
+        font-size: 4vw;
+    }
+
+    .PROJECTS{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding: 1rem 2rem;
+    }
+
+    .projects1{
+        height: 30vh;
+        width: 80vw;
+        padding: 0.5rem 0.5rem;
+    }
+
+    .projectName{
+        font-size: 3vw;
+        padding: 0.5rem 0.5rem;
+        height: auto;
+    }
+
+    .projectLink1{
+        font-size: 2.8vw;
+        padding: 0.1rem 0.5rem;
+        height: auto;
+    }
+
+    .ReactProject{
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 1rem 2rem;
+    }
+
+    .ReactProjectAbout{
+        height: 25vh;
+        width: 80vw;
+        padding: 1rem 1rem;
+    }
+
+    .ReactDanceApp{
+        width: 100vw;
+        height: 50%;
+        max-width: 85vw;
+        display: grid;
+        place-items: center; 
+    }
+
+    .RPD-A{
+        font-size: 3.5vw;
+        padding: 0.5rem;
+    }
+
+    .RD-description{
+        font-size: 3vw;
+        text-align: justify;
+    }
+
+    .projectImg{
+        height: 18vh;
+    }
+
+    .ContactMe{
+        height: auto;
+        width: 100vw;
+        max-width: 100vw;
+        padding: 1rem;
+    }
+
+    .getInTouch{
+        font-size: 3vw;
+    }
+
+    .contacts2{
+        font-size: 5vw;
+    }
+
+    .CONTACTS{
+        height: auto;
+        width: 100vw;
+        max-width: 90vw;
+        margin: 0 auto;
+    }
+
+    .contactEmail{
+        width: 80%;
+    }
+
+
+    .contact1{
+        width: 100vw;
+        max-width: 80vw;
+        height: 70vh;
+    }
+
+    .talkMe,.writeMe{
+        font-size: 3.5vw;
+    }
+
+    .contact2{
+        width: 100vw;
+        max-width: 80vw;
+        height: 60vh;
+    }
+
+    /**-----msg---*/
+    
+    .EnterName,.enterMail{
+        height: 3rem;
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 3.5vw;
+    }
+    
+    .enterMsg{
+        height: 14rem;
+        width: 100%;
+        border: 2px solid #888b91;
+        margin: 0 auto;
+        margin: 0 auto;
+        border: 2px solid #888b91;
+        border-radius: 16px;
+        padding: 1rem;
+        color: #f0f2f4;
+        font-size: 3.5vw;
+        font-weight: bold;
+    }
+    
+    input::placeholder{
+        color: #888b91;
+        font-size: 3.5vw;
+        font-weight: lighter;
+        letter-spacing: 0px;
+    }
+    
+    textarea::placeholder{
+        color: #888b91;
+        font-size: 3.5vw;
+        font-weight: lighter;
+        letter-spacing: 0px;
+    }
+    
+    .submitMe{
+        height: 8vw;
+        width: 10rem;
+        margin: 0 auto;
+        font-size: 4vw;
+        font-weight: 500;
+    }
+    
+    
+ }
+ 
+ @media  (min-width: 435px) and (max-width: 840px) {
+     .introContent{
+      font-size: 10vw;
+     }
+  
+     .hello{
+         font-size: 3.5vw;
+     }
+     .introName{
+      font-size: 11vw;
+     }
+  
+     .introPara{
+      width: 90vw;
+      font-size: 3.5vw;
+     }
+     .bg{
+      opacity: 0.3;
+      right: 20vw;
+     }
+
+     .about{
+        height: 95vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+     }
+
+     .MyIntro{
+        width: 100vw;
+        font-size: 2vw;
+        position: relative;top: 1.5rem;
+     }
+
+     .AboutMe{
+        width: 100vw;
+        font-size: 3vw;
+     }
+
+     .aboutPara{
+        width: 90vw;
+        font-size: 3.5vw;
+     }
+
+     .IntroAbout{
+        width: 100vw;
+        max-width: 90vw;
+        margin: 0 auto;
+        display: grid;
+        grid-template-rows: repeat(3,13vw);
+        grid-template-columns: repeat(3,30vw);
+        padding-top: 4rem;
+     } 
+
+     .IntroAbout h3{
+        font-size: 2.5vw;
+     }
+
+     .IntroAbout h4{
+        font-size: 2.4vw;
+     }
+
+     #followMe{
+        border: 1px solid #ccc;
+        width: 100vw;
+        padding-top: 5rem;
+     }
+
+     .socials{
+        padding-top: 1rem;
+     }
+
+     .socials>a{
+        height:4rem;
+        width:4rem;
+        font-size:4.5vw;
+     }
+
+     
+    .qualification{
+        height: 20vh;
+        width: 100vw;
+        margin: 0 auto;
+        max-width: 85vw;
+    }
+
+    .Education{
+        height: 35vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+    }
+
+    .education{font-size: 3.5vw;}
+
+    .school{
+        height: 20vw;
+        width: 25vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem 1rem;
+        letter-spacing: 0.05rem;
+    }
+    
+    .SCHOOL{
+        padding: 0.5rem;
+        font-size: 2vw;
+
+    }
+
+    .SName{
+        font-size: 1.8vw;
+        padding: 0.2rem;
+    }
+
+    .SPlace{
+        font-size: 1.5vw;padding: 0.2rem;
+    }
+
+    .SYear{
+        font-size: 1.45vw;padding: 0.2rem;
+    }
+
+    /*------skills-----*/
+        
+    .Skills{
+        height: 110vh;
+   }
+
+   .skillName{
+       font-size: 3.5vw;position: relative;top: 3rem;
+   }
+
+   .SkillSets{
+       height: 95%;
+       display: grid;
+       grid-row: 1;
+       row-gap: 1rem;
+   }
+
+   .JAVA-WEB{
+       height:43vh;
+       width: 57vw;
+       padding: 0.5rem 0.5rem;
+   }
+
+   .Technologies{
+       font-size: 3vw;
+
+   }
+
+   .TechName{
+       width: 100vw;
+       max-width: 50vw;
+       margin: 0 auto;
+   }
+
+   .TechName>img{
+       width: 8vw;
+   }
+
+   .techNames>h1{
+       font-size: 2.2vw;
+   }
+
+   .skill-bar{
+       height: 2vw;
+       border-radius: 2vw;
+   }
+
+   .skill-per{
+       border-radius: 2vw;
+   }
+
+   .skill-toolTip{
+       top: 2vw;
+       font-size: 2vw;
+       font-weight: 500;
+   }
+    /*-----skills-----*/
+
+    .Works{
+        padding: 1rem 1rem;
+        height: auto;
+    }
+
+    .WorkName{
+        font-size: 4vw;
+    }
+
+    .workBrief{
+        width: 100vw;
+        max-width:90vw;
+        margin: 0 auto;
+        padding: 1rem;
+        font-size: 3vw;
+    }
+
+    .PROJECTS{
+        display: flex;
+        flex-direction: column;
+        height: 110vh;
+        padding: 1rem 2rem;
+    }
+
+    .projects1{
+        height: 33vh;
+        width: 75vw;
+        padding: 1rem 1rem;
+    }
+
+    .projectName{
+        font-size: 3vw;
+        padding: 1rem 1rem;
+        height: auto;
+    }
+
+    .projectLink1{
+        font-size: 2.8vw;
+        padding: 0.1rem 1rem;
+        height: auto;
+    }
+
+    .ReactProject{
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 1rem 2rem;
+    }
+
+    .ReactProjectAbout{
+        height: 30vh;
+        width: 75vw;
+        padding: 1rem 2rem;
+    }
+
+    .ReactDanceApp{
+        width: 100vw;
+        height: 50%;
+        max-width: 85vw;
+        display: grid;
+        place-items: center; 
+    }
+
+    .RPD-A{
+        font-size: 3.5vw;
+        padding: 0.5rem;
+    }
+
+    .RD-description{
+        font-size: 3vw;
+        text-align: justify;
+    }
+
+    .projectImg{
+        width: 95%;
+    }
+
+    
+    .ContactMe{
+        height: auto;
+        width: 100vw;
+        max-width: 100vw;
+        padding: 1rem;
+    }
+
+    .getInTouch{
+        font-size: 3vw;
+    }
+
+    .contacts2{
+        font-size: 5vw;
+    }
+
+    .CONTACTS{
+        height: auto;
+        width: 100vw;
+        max-width: 90vw;
+        margin: 0 auto;
+        border: 1px solid wheat;
+    }
+
+    .contactEmail{
+        width: 80%;
+    }
+
+
+    .contact1{
+        width: 100vw;
+        max-width: 80vw;
+        height: 70vh;
+        border: 1px solid silver;
+        margin: 0 auto;
+    }
+
+    .talkMe,.writeMe{
+        font-size: 3.5vw;
+    }
+
+    .contact2{
+        width: 100vw;
+        max-width: 80vw;
+        height: 60vh;
+        margin: 0 auto;
+    }
+
+    /**-----msg---*/
+    
+    .EnterName,.enterMail{
+        height: 4rem;
+        width: 100%;
+        padding: 1rem;
+        font-size: 3.5vw;
+    }
+    
+    .enterMsg{
+        height: 14rem;
+        width: 100%;
+        border: 2px solid #888b91;
+        margin: 0 auto;
+        border: 2px solid #888b91;
+        border-radius: 16px;
+        padding: 1rem;
+        color: #f0f2f4;
+        font-size: 3.5vw;
+        font-weight: bold;
+    }
+    
+    input::placeholder{
+        color: #888b91;
+        font-size: 3.5vw;
+        font-weight: lighter;
+        letter-spacing: 0px;
+    }
+    
+    textarea::placeholder{
+        color: #888b91;
+        font-size: 3.5vw;
+        font-weight: lighter;
+        letter-spacing: 0px;
+    }
+    
+    .submitMe{
+        height: 10vw;
+        width: 20rem;
+        margin: 0 auto;
+        font-size: 4vw;
+        font-weight: 500;
+    }
+    
+     
+  }
+ 
+  @media  (min-width: 840px) and (max-width: 1200px) {
+     .introContent{
+      font-size: 8vw;
+     }
+  
+     .hello{
+         font-size: 3.5vw;
+     }
+     .introName{
+      font-size: 9.5vw;
+     }
+  
+     .introPara{
+      width: 80vw;
+      font-size: 3.5vw;
+     }
+     .bg{
+      opacity: 0.5;
+      right: 10vw;
+     }
+
+     .about{
+        height: 90vh;
+        width: 90vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 0 auto;
+     }
+
+     .MyIntro{
+        width: 100vw;
+        font-size: 2vw;
+        position: relative;
+        top: 1.5rem;
+     }
+
+     .AboutMe{
+        width: 100vw;
+        font-size: 3vw;
+     }
+
+     .aboutPara{
+        width: 80vw;
+        font-size: 3.2vw;
+     }
+
+     .IntroAbout{
+        padding-top: 4rem;
+        max-width: 80vw;
+        display: grid;
+        grid-template-rows: repeat(3,15vw);
+        grid-template-columns: repeat(3,30vw);
+        margin: 0 auto;
+     }
+
+     .IntroAbout h3{
+        font-size: 2.5vw;
+     }
+
+     .IntroAbout h4{
+        font-size: 2.3vw;
+     }
+
+     #followMe{
+        width: 100vw;position: relative;
+        top: 3rem;
+     }
+
+     .socials{
+       height: auto;
+       padding: 1rem;
+     }
+
+     .socials a{
+        height: 4.5rem;
+        width: 4.5rem;
+        font-size: 3rem;
+     }
+
+     .Education{
+
+        height: 35vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+     }
+
+     .education{
+       font-size: 3vw;
+     }
+
+     .qualification{
+        width: 100vw;
+        max-width: 90vw;
+        margin: 0 auto;
+
+        height: 20vh;
+     }
+
+     .school{
+        height: 20vw;
+        width: 25vw;
+        padding: 1rem 1rem;
+     }
+
+     .SCHOOL{
+        font-size: 2.2vw;
+        font-weight: bold;
+        padding: 0.2rem;
+     }
+
+     .SName{
+        font-size: 1.9vw;
+        padding: 0.1rem;
+     }
+
+     .SPlace{
+        font-size: 1.5vw;
+        padding: 0.1rem;
+     }
+
+     .SYear{
+        font-size: 1.5vw;
+        padding: 0.1rem;
+     }
+
+      /*------skills-----*/
+        
+    .Skills{
+        height: 100vh;
+   }
+
+   .skillName{
+       font-size: 3.5vw;
+   }
+
+   .SkillSets{
+       height: 100%;
+       display: grid;
+       grid-row: 1;
+       row-gap: 1rem;
+       padding: 0;
+   }
+
+   .JAVA-WEB{
+       height:43vh;
+       width: 53vw;
+       padding: 0.5rem 0.5rem;
+   }
+
+   .Technologies{
+       font-size: 3vw;
+
+   }
+
+   .TechName{
+       width: 100vw;
+       max-width: 50vw;
+       margin: 0 auto;
+   }
+
+   .TechName>img{
+       width: 8vw;
+   }
+
+   .techNames>h1{
+       font-size: 2.2vw;
+   }
+
+   .skill-bar{
+       height: 2vw;
+       border-radius: 2vw;
+   }
+
+   .skill-per{
+       border-radius: 2vw;
+   }
+
+   .skill-toolTip{
+       top: 2vw;
+       font-size: 1.8vw;
+       font-weight: 500;
+   }
+    /*-----skills-----*/
+    .Works{
+        padding: 1rem 1rem;
+        height: auto;
+    }
+
+    .WorkName{
+        font-size: 4vw;
+        padding: 2rem 4rem;
+    }
+
+    .workBrief{
+        width: 100vw;
+        max-width:90vw;
+        margin: 0 auto;
+        padding: 2rem 4rem;
+        font-size: 3vw;
+    }
+
+    .PROJECTS{
+        display: flex;
+        flex-direction: column;
+        height: 110vh;
+        padding: 1rem 2rem;
+    }
+
+    .projects1{
+        height: 33vh;
+        width: 75vw;
+        padding: 1rem 1rem;
+    }
+
+    .projectName{
+        font-size: 3vw;
+        padding: 1rem 1rem;
+        height: auto;
+    }
+
+    .projectLink1{
+        font-size: 2.8vw;
+        padding: 0.1rem 1rem;
+        height: auto;
+    }
+
+    .ReactProject{
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 1rem 2rem;
+    }
+
+    .ReactProjectAbout{
+        height: 30vh;
+        width: 75vw;
+        padding: 1rem 2rem;
+    }
+
+    .ReactDanceApp{
+        width: 100vw;
+        height: 50%;
+        max-width: 85vw;
+        display: grid;
+        place-items: center; 
+    }
+
+    .RPD-A{
+        font-size: 3.5vw;
+        padding: 0.5rem;
+    }
+
+    .RD-description{
+        font-size: 3vw;
+        text-align: justify;
+    }
+
+    .projectImg{
+        width: 95%;
+        height: 21vh;
+    }
+
+    
+    .ContactMe{
+        height: auto;
+        width: 100vw;
+        max-width: 100vw;
+        padding: 1rem;
+    }
+
+    .getInTouch{
+        font-size: 3vw;
+    }
+
+    .contacts2{
+        font-size: 5vw;
+    }
+
+    .CONTACTS{
+        height: auto;
+        width: 100vw;
+        max-width: 90vw;
+        margin: 0 auto;
+    }
+
+    .contactEmail{
+        width: 60%;
+        font-size: 3vw;
+    }
+
+
+    .contact1{
+        width: 100vw;
+        max-width: 80vw;
+        height: 70vh;
+        margin: 0 auto;
+    }
+
+    .talkMe,.writeMe{
+        font-size: 3.5vw;
+    }
+
+    .contact2{
+        width: 100vw;
+        max-width: 80vw;
+        height: 60vh;
+        margin: 0 auto;
+    }
+
+    /**-----msg---*/
+    
+    .EnterName,.enterMail{
+        height: 4.5rem;
+        width: 100%;
+        padding: 1rem;
+        font-size: 3.5vw;
+    }
+    
+    .enterMsg{
+        height: 20rem;
+        width: 100%;
+        border: 2px solid #888b91;
+        margin: 0 auto;
+        margin: 0 auto;
+        border: 2px solid #888b91;
+        border-radius: 16px;
+        padding: 1rem;
+        color: #f0f2f4;
+        font-size: 3.5vw;
+        font-weight: bold;
+    }
+    
+    input::placeholder{
+        color: #888b91;
+        font-size: 3.5vw;
+        font-weight: lighter;
+        letter-spacing: 0px;
+    }
+    
+    textarea::placeholder{
+        color: #888b91;
+        font-size: 3.5vw;
+        font-weight: lighter;
+        letter-spacing: 0px;
+    }
+    
+    .submitMe{
+        height: 10vw;
+        width: 20rem;
+        margin: 0 auto;
+        font-size: 4vw;
+        font-weight: 500;
+    }
+    
+  }
+
+  @media screen and (max-width:540px){
+    .Education{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .SCHOOL,.SName,.SPlace,.SYear{
+        padding: 0.1rem;
+    }
+
+    
+  }
+ 
+
+
